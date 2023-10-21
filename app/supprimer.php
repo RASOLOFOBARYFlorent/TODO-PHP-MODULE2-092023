@@ -1,24 +1,14 @@
 <?php
-
-if(isset($_POST['id'])){
+    //connexion a la base de données
     require '../connexion.php';
 
-    $id = $_POST['id'];
+    //récupération de l'id dans le lien
+    $id= $_GET['id'];
 
-    if(empty($id)){
-       echo 0;
-    }else {
-        $stmt = $conn->prepare("DELETE FROM todo WHERE id=?");
-        $res = $stmt->execute([$id]);
-
-        if($res){
-            echo 1;
-        }else {
-            echo 0;
-        }
-        $conn = null;
-        exit();
-    }
-}else {
-    header("Location: ../index.php?mess=error");
-}
+    //requête de suppression
+    $stmt = $conn->prepare("DELETE FROM todo WHERE id=$id");
+    $stmt->execute();
+    
+    //redirection vers la page index.php
+    header("Location: ../index.php");
+?>

@@ -1,5 +1,14 @@
+ *,::before, ::after{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+ }
+ 
+ 
  body {
     background:rgb(45, 70, 30, 0.4);
+    height: 100vh;
+    
   }
   
   * {
@@ -17,6 +26,8 @@
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+    position: sticky;
+    top: 0;
 }
 .header .right ul{
     display: flex ;
@@ -42,20 +53,38 @@
     box-shadow: 1px 5px 4px rgba(10, 10, 15, 0.4);
 }
 
+.header .research form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem 0px;
+
+}
+.header .research form #research{
+  background-color: blue;
+  height: 35px;
+  color: white;
+}
+.header .research form #keyresearch{
+  height: 35px;
+}
+
+
+/* fin header */
 
 .main-section {
     background: transparent;
     max-width: 400px;
     width: 90%;
     height: 400px;
-    margin: 30px auto;
+    margin: 2rem auto;
     border-radius: 10px;
   }
   
   .add-section {
     width: 100%;
     background: #fff;
-    margin: 0px auto;
+    margin: 20px auto;
     padding: 10px;
     border-radius: 5px;
   }
@@ -69,6 +98,12 @@
     font-size: 16px;
     border-radius: 5px;
     padding: 0px 5px;
+  }
+  .add-section textarea{
+    display: block;
+    width: 95%;
+    margin: 5px auto;
+    border-radius: 5px;
   }
   
   .add-section button {
@@ -116,7 +151,14 @@
     padding: 10px;
     border-radius: 5px;
   }
+  /* if research exist */
+
+
   
+  /* end if research exist */
+
+
+
   .todo-item {
     width: 95%;
     margin: 10px auto;
@@ -142,19 +184,18 @@
     font-size: 14px;
     font-family: sans-serif;
   }
+
+  .main-section .show-todo-section .todo-item ul li{
+    list-style: none;
+  }
   
-  .remove-to-do {
+  .main-section .show-todo-section .todo-item ul li img {
     display: block;
     float: right;
-    width: 20px;
-    height: 20px;
-    font-family: sans-serif;
-    color: rgb(139, 97, 93);
-    text-decoration: none;
+    height: 25px;
     text-align: right;
     padding: 0px 5px 8px 0px;
-    border-radius: 50%;
-    transition: background 1s;
+    margin: 0 0 0 15px;
     cursor: pointer;
   }
   
@@ -167,7 +208,28 @@
     color: #999 !important;
     text-decoration: line-through;
   }
-  
+  #blabla{
+    width: 15px;
+    height: 15px;
+    background-color: transparent;
+    transform: translateX(5px) translateY(20px);
+  }
+  .lienspage{
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+    
+  }
+  .lienpage{
+    margin: 2rem 0px;
+  }
+  .lienpage:active{
+    color: red;
+  }
+  .lienpage:focus{
+    color: red;
+  }
+
   .todo-item input {
     margin: 0px 5px;
   }
@@ -179,56 +241,58 @@
     color: #cccc;
   }
 
-  /* footer */
+  .containerlist .moving {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    margin: 2rem auto;
+    max-width: 300px;
+}
 
+.containerlist .moving .hole{
+    letter-spacing: 2px;
+    font-size: 15px;
+    animation: colormove 1.2s linear infinite;
+}
+.containerlist .moving .hole1{
+    animation-delay: 0.2s;
+}
+.containerlist .moving .hole2{
+    animation-delay: 0.4s;
+}
+.containerlist .moving .hole3{
+    animation-delay: 0.6s;
+}
+
+/* footer */
 .footer{
-    margin-top: 5rem;
-    text-align: center;
-}
-.footer h6{
-    font-size: 18px;
-    font-weight: 400;
-} 
-
-.socialnetworkandtext{
-    width: 100%;
-    background: linear-gradient(120deg,rgba(48, 48, 168,0.6),rgba(9, 216, 9, 0.274),rgba(20,20,150,0.5));
+    max-width: 1024px;
     display: flex;
+    justify-content: center;
+    position: absolute;
+    top: 100vh;
+    gap: 2rem;
     flex-wrap: wrap;
-    padding: 50px auto;
-
+}
+.footer .liens{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.footer .socialnetworks{
+  display: flex;
+  justify-content: space-between;
+}
+.footer .ourservices{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
-.footer .socialnetworkandtext img{ 
-    width: 5%;
-}
-.footer .socialnetworkandtext .text{ 
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 42%;
-}
-.footer .socialnetworkandtext .text .links a{
-    text-decoration: none;
-    color: white;
-    background-color: blue;
-    padding: 4px 8px;
-    border-radius: 5%;
-}
-.footer .socialnetworkandtext .text .links{
-    margin: 20px 0;
-}
-.footer .socialnetworkandtext .socials{
-    width: 42%;
-    align-items: center;
-    display: flex;
-    justify-content: center;
-}
-.footer .socialnetworkandtext .socials img{
-    margin: 2%;
-    cursor: pointer;
-}
-.footer .socialnetworkandtext .img12{
-    max-width: 200px;
+@media screen and (max-width:499px){
+
+  .header .right ul li a{
+    font-size: 15px; 
+  }
 }
